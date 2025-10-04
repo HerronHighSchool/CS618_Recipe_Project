@@ -1,5 +1,5 @@
 FROM node:20 AS build
-ARG VITE_BACKEND_URL=https://orange-lamp-7vrj4pv7r9jwhqj5-3001.app.github.dev
+ARG VITE_BACKEND_URL=https://sturdy-adventure-r4r5vp47rgq7fp5w9-3001.app.github.dev/
 ENV VITE_BACKEND_URL=$VITE_BACKEND_URL  
 WORKDIR /build 
 COPY package.json . 

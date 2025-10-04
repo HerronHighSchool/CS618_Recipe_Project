@@ -5,4 +5,12 @@ const postSchema = new Schema({
     contents: String, 
     tags: [String],
 }, { timestamps: true })
+
+const recipeSchema = new Schema({
+    title: { type: String, required: true },
+    author: { type: Schema.Types.ObjectId, ref: 'user', required: true },
+    contents: String, 
+    tags: [String],
+}, { timestamps: true })
+
 export const Post = mongoose.model('Post', postSchema)
