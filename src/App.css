@@ -4,6 +4,11 @@
   padding: 2rem;
   text-align: center;
 }
+#header{
+ text-align:center;
+ padding-top:30px;
+ padding-bottom:30px; 
+}
 
 .logo {
   height: 6em;

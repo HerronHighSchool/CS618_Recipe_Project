@@ -6,7 +6,7 @@ import { Post } from './Post.jsx'
 export function PostList({ posts }) {
     return (
     <div>
-        <h2>Recent Posts</h2>
+        <h2>Look at what we got cookin':</h2>
         {posts.map((post) => (
             <Post {...post} key={post._id} />
         ))}

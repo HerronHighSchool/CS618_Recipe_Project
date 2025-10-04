@@ -10,13 +10,10 @@ dotenv.config();
 
 
 const app = express();
+//modified cors function to allow for use of frontend specific db
+app.use(cors());
 app.use(bodyParser.json());
-app.use(
-  cors({
-    origin: "*",
-    credentials: true,
-  }),
-);
+
 
 //accept requests from different origins
 //cors = cross origin resource sharing

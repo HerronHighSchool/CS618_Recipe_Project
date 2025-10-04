@@ -1,12 +1,13 @@
 //protypes are for type checking
 import PropTypes from 'prop-types'
 import { User } from './User.jsx'
-
+import './ComponentStyle.css'
 export function Post({ title, contents, author:userID }) {
     return(
         <article>
             <h3>{title}</h3>
-            <div>{contents}</div>
+            <div>Da Ingredients:{contents}</div>
+            <div>Image Link Here</div>
             {userID && (
                 <em>
                     <br />

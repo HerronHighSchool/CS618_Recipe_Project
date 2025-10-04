@@ -9,18 +9,6 @@ import { getPosts } from '../api/posts.js'
 import {Header} from '../components/Header.jsx'
 
 // eslint-disable-next-line no-unused-vars
-const posts = [
-  {
-    _id: '1',
-    title: 'My first post',
-    contents: 'This is my first post. I hope you like it.',
-  },
-  {
-    _id: '2',
-    title: 'My second post',
-    contents: "This is my second post. I hope you like it.",
-  }
-]
 
 export function Blog() {
   const postQuery = useQuery({
