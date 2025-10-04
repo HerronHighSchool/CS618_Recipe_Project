@@ -3,6 +3,8 @@ import { useMutation } from '@tanstack/react-query'
 import { useNavigate, Link } from 'react-router-dom'
 
 import { signup } from '../api/users.js'
+import './pages.css'
+
 
 export function Signup() {
   const [username, setUsername] = useState('')
@@ -28,7 +30,7 @@ export function Signup() {
       <br />
       <div>
         <label htmlFor='create-username'>Username: </label>
-        <input
+        <input className="basic-input"
           type='text'
           name='create-username'
           id='create-username'
@@ -39,7 +41,7 @@ export function Signup() {
       <br />
       <div>
         <label htmlFor='create-password'>Password: </label>
-        <input
+        <input className="basic-input"
           type='password'
           name='create-password'
           id='create-password'

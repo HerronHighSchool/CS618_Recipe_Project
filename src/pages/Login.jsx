@@ -4,6 +4,7 @@ import { useNavigate, Link } from 'react-router-dom'
 
 import { login } from '../api/users.js'
 import { useAuth } from '../contexts/AuthContext.jsx'
+import './pages.css'
 
 export function Login() {
   const [username, setUsername] = useState('')
@@ -33,7 +34,7 @@ export function Login() {
       <br />
       <div>
         <label htmlFor='create-username'>Username: </label>
-        <input
+        <input className = "basic-input"
           type='text'
           name='create-username'
           id='create-username'
@@ -44,7 +45,7 @@ export function Login() {
       <br />
       <div>
         <label htmlFor='create-password'>Password: </label>
-        <input
+        <input className="basic-input"
           type='password'
           name='create-password'
           id='create-password'

@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 import express from "express";
 import { userRoutes } from "./src/routes/users.js";
-import { postRoutes } from "./src/routes/posts.js";
+import { recipeRoutes } from "./src/routes/recipes.js";
 import { initDB } from "./src/db/initdb.js";
 import bodyParser from "body-parser";
 import cors from "cors";
@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
 });
 
 await initDB();
-postRoutes(app);
+recipeRoutes(app);
 userRoutes(app);
 
 export { app };

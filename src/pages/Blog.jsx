@@ -8,6 +8,7 @@ import { useQuery } from '@tanstack/react-query'
 import { getPosts } from '../api/posts.js'
 import {Header} from '../components/Header.jsx'
 
+
 // eslint-disable-next-line no-unused-vars
 
 export function Blog() {

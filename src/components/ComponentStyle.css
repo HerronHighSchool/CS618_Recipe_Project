@@ -1,8 +1,66 @@
-#header{
-    text-align:center; 
-    padding-top: 30px; 
+.title-header{
+  font-size: 2rem;
+  color: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+  background-color: white;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(255,255,255);
+
 }
 
-#imageStyle{
+.imageStyle{
     width: 200px; 
+}
+
+
+.recipe-container {
+  margin: 2rem auto;
+  background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.recipe-header {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+  color: white;
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+
+.recipe-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0 0 0.5rem 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.steps{
+  max-width:800px; 
+  padding:10px; 
+}
+
+.center{
+    text-align:Center;
+}
+
+.recipe-input {
+  max-width: 800px; 
+  color:black; 
+  width: 100%;
+  padding: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.8;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #fff 0%, #fafbfc 100%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  resize: vertical;
+}
+
+.logout{
+  background-color: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+  color:white;
+  font-size: 1rem;
 }
