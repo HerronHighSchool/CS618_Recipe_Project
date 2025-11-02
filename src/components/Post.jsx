@@ -1,4 +1,5 @@
 //protypes are for type checking
+//this is the other file. Don't use
 import PropTypes from 'prop-types'
 import { User } from './User.jsx'
 import './ComponentStyle.css'
@@ -8,6 +9,7 @@ export function Post({ title, contents, author:userID }) {
             <h3>{title}</h3>
             <div>Da Ingredients:{contents}</div>
             <div>Image Link Here</div>
+           
             {userID && (
                 <em>
                     <br />
