@@ -5,7 +5,8 @@ import {
   getRecipeById,
   createRecipe,
   deleteRecipe,
-  updateRecipe
+  updateRecipe,
+  updateRecipeLikes,  // Add this
 } from "../services/recipes.js";
 import { requireAuth } from "../middleware/jwt.js";
 
@@ -73,4 +74,16 @@ export function recipeRoutes(app) {
       return res.status(500).end();
     }
   });
+
+  app.patch("/recipes/:id/likes", requireAuth, async (req, res) => {
+    try {
+      const post = await updateRecipeLikes(req.params.id, req.body.likes);
+      if (!post) return res.status(404).end();
+      return res.json(post);
+    } catch (err) {
+      console.error("error updating likes", err);
+      return res.status(500).end();
+    }
+  });
+
 }

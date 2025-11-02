@@ -1,8 +1,8 @@
 import { Recipe}  from '../db/models/recipe.js'
 import { User } from '../db/models/user.js'
 
- export async function createRecipe( userID, {title, contents, imageurl, tags}={}) { 
-    const post = new Recipe({ title, author: userID, contents, imageurl, tags }) 
+ export async function createRecipe( userID, {title, contents, imageurl, tags, likes}={}) { 
+    const post = new Recipe({ title, author: userID, contents, imageurl, tags, likes }) 
     return await post.save() 
 }
 
@@ -30,11 +30,19 @@ export async function getRecipeById(postId) {
     return await Recipe.findById(postId) 
 }
 
-export async function updateRecipe(userID, postId, { title, contents, imageurl, tags }={}) { 
-    return await Recipe.findOneAndUpdate( { _id: postId, author:userID }, { $set: { title, contents, imageurl, tags } },
+export async function updateRecipe(userID, postId, { title, contents, imageurl, tags, likes }={}) { 
+    return await Recipe.findOneAndUpdate( { _id: postId, author:userID }, { $set: { title, contents, imageurl, tags, likes } },
         { new: true }, ) 
     }
 
 export async function deleteRecipe(userID, postId) { 
     return await Recipe.deleteOne({ _id: postId, author: userID }) 
+}
+
+export async function updateRecipeLikes(postId, likes) { 
+    return await Recipe.findByIdAndUpdate( 
+        postId,
+        { $set: { likes } },
+        { new: true }, 
+    ) 
 }

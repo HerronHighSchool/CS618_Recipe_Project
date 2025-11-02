@@ -6,6 +6,7 @@ const recipeSchema = new Schema({
     contents: String, 
     imageurl: String, 
     tags: [String],
+    likes: [String],
 }, { timestamps: true })
 
 export const Recipe = mongoose.model('Recipe', recipeSchema)
