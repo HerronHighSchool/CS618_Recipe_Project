@@ -73,6 +73,7 @@ export function App() {
             NewRecipeNotification({
                 author: "" + data.userID,
                 title: "" + data.title,
+                recipeID: "" + data._id
             }); };
         notify();
       /*  const [token, setToken] = useAuth();
