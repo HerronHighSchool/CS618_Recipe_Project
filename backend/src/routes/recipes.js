@@ -8,6 +8,7 @@ import {
   updateRecipe,
   updateRecipeLikes,  // Add this
 } from "../services/recipes.js";
+import { getIO } from "../../socket.js";
 import { requireAuth } from "../middleware/jwt.js";
 
 export function recipeRoutes(app) {
@@ -46,7 +47,20 @@ export function recipeRoutes(app) {
 
   app.post("/recipes", requireAuth, async (req, res) => {
     try {
+      const userID = req.auth.sub; // or however you get the user
       const post = await createRecipe(req.auth.sub, req.body);
+      //broadcast within the route when it is created using socket.io
+          try {
+            const io = getIO();
+            io.emit('new-recipe', {
+                author:userID,
+                title: post.title,
+                recipeId: post._id
+            });
+          } catch (error) {
+              console.error('Socket.io not available:', error.message);
+              // Don't fail the recipe creation if socket fails
+          }
       return res.json(post);
     } catch (err) {
       console.error("error creating post", err);

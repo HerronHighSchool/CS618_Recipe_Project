@@ -10,12 +10,14 @@ import {Header} from '../components/Header.jsx'
 import {RecipeSorting} from '../components/RecipeSorting.jsx'
 import { useState } from 'react'
 import { RecipeStats } from '../components/RecipeStats.jsx'
+import { NewRecipeNotification } from '../components/NewRecipeNotification.jsx'
+import { ToastContainer, toast } from 'react-toastify'
 import './pages.css'
 
 // eslint-disable-next-line no-unused-vars
 
 export function RecipeHome() {
-
+  
   const [author, setAuthor] = useState('')  
   const [sortBy, setSortBy] = useState('createdAt')  
   const [sortOrder, setSortOrder] = useState('descending')
@@ -26,6 +28,7 @@ export function RecipeHome() {
   })
 
   const recipes = postQuery.data || []
+
 
   return (
   <div className="center"> 
@@ -42,6 +45,6 @@ export function RecipeHome() {
     <CreateRecipe className="Center" /> 
       <hr />
     <RecipeStats className="Center" recipes={recipes} />  
-  </div>
+    </div>
   )
 }

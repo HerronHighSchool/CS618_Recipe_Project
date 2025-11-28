@@ -6,6 +6,7 @@ import { createRecipe, updateRecipeLikes } from '../api/recipes.js'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import './ComponentStyle.css'
 import { useAuth } from '../contexts/AuthContext.jsx'
+import { Link } from 'react-router-dom'
 
 export function Recipe({ _id, title, contents, imageurl, author:userID, likes}) {
     
@@ -43,8 +44,8 @@ export function Recipe({ _id, title, contents, imageurl, author:userID, likes}) 
         if(token && likes?.includes(sub)){
             return(
             <article className="recipe-container">
-                <div className = "recipe-header">
-                <h3 className="recipe-title steps">{title}</h3></div>
+                <div className = "recipe-header"><Link to={`/posts/${_id}`}>
+                <h3 className="recipe-title steps">{title}</h3></Link></div>
                 <h3>The Steps</h3>
                 <div className="steps">{contents}</div>
                 <br />

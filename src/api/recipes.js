@@ -50,3 +50,8 @@ export const updateRecipeLikes = async (token, recipeId, likes) => {
   
   return await res.json()
 }
+
+export const getRecipeById = async (postId) => { 
+   const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/recipes/${postId}`)  
+  return await res.json() 
+}
