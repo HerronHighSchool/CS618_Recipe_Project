@@ -4,6 +4,7 @@ import { User } from '../db/models/user.js'
  export async function createRecipe( userID, {title, contents, imageurl, tags, likes}={}) { 
     const post = new Recipe({ title, author: userID, contents, imageurl, tags, likes }) 
     return await post.save() 
+    //broadcast within the route when it is created using socket.io
 }
 
 async function listRecipes( 

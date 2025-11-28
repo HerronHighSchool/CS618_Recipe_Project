@@ -5,6 +5,9 @@ import { recipeRoutes } from "./src/routes/recipes.js";
 import { initDB } from "./src/db/initdb.js";
 import bodyParser from "body-parser";
 import cors from "cors";
+import { createServer } from 'node:http'
+import { Server } from 'socket.io'
+import { handleSocket } from "./socket.js";
 
 dotenv.config();
 
@@ -27,4 +30,18 @@ await initDB();
 recipeRoutes(app);
 userRoutes(app);
 
-export { app };
+//edit the following to include socket.io and create a server that is an app, broadcasting server as app. 
+//import server
+//create server using cors
+//handle socket connections
+const server = createServer(app);
+const io = new Server(server, {
+    cors: {
+        origin: "*", // Your Vite dev server URL
+        methods: ["GET", "POST"],
+        credentials: true
+    }
+});
+handleSocket(io);
+
+export { server as app };
