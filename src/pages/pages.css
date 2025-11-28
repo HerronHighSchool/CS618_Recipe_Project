@@ -2,3 +2,8 @@
     background-color:white; 
     color:black; 
 }
+.center{
+    text-align:Center;
+    align-items: center;
+    justify-content: center;
+}

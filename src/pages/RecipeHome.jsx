@@ -9,6 +9,8 @@ import { getRecipes } from '../api/recipes.js'
 import {Header} from '../components/Header.jsx'
 import {RecipeSorting} from '../components/RecipeSorting.jsx'
 import { useState } from 'react'
+import { RecipeStats } from '../components/RecipeStats.jsx'
+import './pages.css'
 
 // eslint-disable-next-line no-unused-vars
 
@@ -26,17 +28,20 @@ export function RecipeHome() {
   const recipes = postQuery.data || []
 
   return (
-  <div> 
-  <Header />
-  <hr/>
-  <RecipeSorting fields={['createdAt', 'title', 'likes']} 
-  value={sortBy} 
-  onChange={(value) => setSortBy(value)} 
-  orderValue={sortOrder} 
-  onOrderChange={(orderValue) => setSortOrder(orderValue)} />
+  <div className="center"> 
+    <Header className="center"/>
     <hr/>
-    <RecipeList recipes={recipes} />
-    <hr/>
-  <CreateRecipe /> </div>
+    <RecipeSorting className = "center" fields={['createdAt', 'title', 'likes']} 
+    value={sortBy} 
+    onChange={(value) => setSortBy(value)} 
+    orderValue={sortOrder} 
+    onOrderChange={(orderValue) => setSortOrder(orderValue)} />
+      <hr/>
+      <RecipeList className="Center" recipes={recipes} />
+      <hr/>
+    <CreateRecipe className="Center" /> 
+      <hr />
+    <RecipeStats className="Center" recipes={recipes} />  
+  </div>
   )
 }
